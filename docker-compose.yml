@@ -1,7 +1,7 @@
-version: "2"
+vrsion: "2"
 services:
   master:
-    image: bitnami/jenkins-master
+    image: jenkins/jenkins
     ports:
     - "80:8080"
     environment:
@@ -10,25 +10,25 @@ services:
     - jenkins-master:/var/jenkins_home
 
   worker1:
-    image: bitnami/jenkins-slave
+    image: jenkinsci/nlp-slave
     environment:
       JAVA_OPTS: "-Xmx2048m -Djenkins.install.runSetupWizard=false"
-      JENKINS_MASTER: "http://master:8080"
+      JENKINS_MASTER: "https://github.com/adaffner/test.git"
       JENKINS_NAME: "worker1"
-      JENKINS_USER: "jenkins"
-      JENKINS_PASS: "jenkins"
+      JENKINS_USER: "arthur"
+      JENKINS_PASS: "password"
       JENKINS_RETRY: "10"
     volumes:
     - jenkins-worker1:/var/jenkins_home/worker
 
   worker2:
-    image: bitnami/jenkins-slave
+    image: jenkinsci/nlp-slave
     environment:
       JAVA_OPTS: "-Xmx2048m -Djenkins.install.runSetupWizard=false"
-      JENKINS_MASTER: "http://master:8080
+      JENKINS_MASTER: "https://github.com/adaffner/test.git"
       JENKINS_NAME: "worker2"
-      JENKINS_USER: "jenkins"
-      JENKINS_PASS: "jenkins"
+      JENKINS_USER: "arthur"
+      JENKINS_PASS: "password"
       JENKINS_RETRY: "10"
     volumes:
     - jenkins-worker2:/var/jenkins_home/worker
@@ -36,5 +36,4 @@ services:
 volumes:
   jenkins-master:
   jenkins-worker1:
-  jenkins-worker2:
   jenkins-worker2:

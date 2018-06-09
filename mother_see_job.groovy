@@ -25,7 +25,7 @@ reposToAutomate = reposToAutomate.plus(sharedReposToAutomate);
 reposToAutomate.each { project ->
     def reposToInclude = [
             project,
-            [name: "automation", url: 'https://github.com/adaffner/test.git', sub_directory: 'automation']
+            [name: "test", url: 'https://github.com/adaffner/test.git', sub_directory: 'test']
     ]
 
 
@@ -51,7 +51,7 @@ reposToAutomate.each { project ->
         }
     }
 
-    job(project.projectName + '-seed-job') {
+    job(project.projectName + '-seed-job1') {
 
         if (project.disabled) {
             disabled()
