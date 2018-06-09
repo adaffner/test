@@ -10,7 +10,7 @@ services:
     - jenkins-master:/var/jenkins_home
 
   worker1:
-    image: jenkinsci/nlp-slave
+    image: jenkinsci/jnlp-slave
     environment:
     - JAVA_OPTS=-Xmx2048m -Djenkins.install.runSetupWizard=false
     - JENKINS_MASTER=https://github.com/adaffner/test.git
@@ -22,7 +22,7 @@ services:
     - jenkins-worker1:/var/jenkins_home/worker
 
   worker2:
-    image: jenkinsci/nlp-slave
+    image: jenkinsci/jnlp-slave
     environment:
     - JAVA_OPTS=-Xmx2048m -Djenkins.install.runSetupWizard=false
     - JENKINS_MASTER=https://github.com/adaffner/test.git
