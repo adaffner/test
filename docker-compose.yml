@@ -12,7 +12,7 @@ services:
   worker1:
     image: jenkinsci/jnlp-slave
     environment:
-    - JAVA_OPTS=-Xmx2048m -Djenkins.install.runSetupWizard=false
+    - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
     - JENKINS_MASTER=https://github.com/adaffner/test.git
     - JENKINS_NAME=worker1
     - JENKINS_USER=arthur
@@ -24,7 +24,7 @@ services:
   worker2:
     image: jenkinsci/jnlp-slave
     environment:
-    - JAVA_OPTS=-Xmx2048m -Djenkins.install.runSetupWizard=false
+    - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
     - JENKINS_MASTER=https://github.com/adaffner/test.git
     - JENKINS_NAME=worker2 
     - JENKINS_USER=arthur
